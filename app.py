@@ -29,7 +29,7 @@ IMG_SIZE = 224
 # ============================================================
 
 model = load_model(
-    "clean_brain_tumor_model.keras",
+    "brain_tumor_model.keras",
     compile=False
 )
 
