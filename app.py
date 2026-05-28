@@ -28,9 +28,10 @@ IMG_SIZE = 224
 # LOAD MODEL
 # ============================================================
 
-load_model("clean_brain_tumor_model.keras", compile=False)
-
-
+model = load_model(
+    "clean_brain_tumor_model.keras",
+    compile=False
+)
 
 print("\n====================================")
 print("✅ MODEL LOADED SUCCESSFULLY")
@@ -45,23 +46,16 @@ def preprocess_image(image_path):
     img = cv2.imread(image_path)
 
     if img is None:
-
         return None
 
     img = cv2.cvtColor(
-
         img,
-
         cv2.COLOR_BGR2RGB
-
     )
 
     img = cv2.resize(
-
         img,
-
         (IMG_SIZE, IMG_SIZE)
-
     )
 
     img = img.astype(np.float32)
@@ -69,11 +63,8 @@ def preprocess_image(image_path):
     img = preprocess_input(img)
 
     img = np.expand_dims(
-
         img,
-
         axis=0
-
     )
 
     return img
@@ -109,7 +100,6 @@ def predict():
         return jsonify({
 
             "success": False,
-
             "message": "No image uploaded"
 
         })
@@ -135,7 +125,6 @@ def predict():
         return jsonify({
 
             "success": False,
-
             "message": "Invalid image"
 
         })
@@ -195,13 +184,9 @@ def predict():
     return jsonify({
 
         "success": True,
-
         "prediction": result,
-
         "confidence": round(confidence, 2),
-
         "severity": severity,
-
         "suggestion": suggestion
 
     })
@@ -215,9 +200,7 @@ if __name__ == "__main__":
     app.run(
 
         host="0.0.0.0",
-
         port=5000,
-
         debug=True
 
     )
