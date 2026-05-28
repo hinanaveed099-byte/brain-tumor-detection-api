@@ -8,6 +8,7 @@ from flask import Flask, request, jsonify
 import tensorflow as tf
 import numpy as np
 import cv2
+import keras
 
 from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.efficientnet import preprocess_input
