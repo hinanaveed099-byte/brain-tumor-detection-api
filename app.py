@@ -29,9 +29,10 @@ IMG_SIZE = 224
 # LOAD MODEL
 # ============================================================
 
-model = load_model(
+model = keras.models.load_model(
     "brain_tumor_model.keras",
     compile=False
+
 )
 
 print("\n====================================")
